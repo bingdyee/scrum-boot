@@ -1,0 +1,7 @@
+rootProject.name = 'scrum-boot'
+include 'scrum-boot-dependencies'
+include 'scrum-boot-tools:scrum-boot-gradle-plugin'
+include 'scrum-boot-starters:web-scrum-boot-starter'
+include 'scrum-boot-tools:scrum-boot-commons'
+findProject(':scrum-boot-tools:scrum-boot-commons')?.name = 'scrum-boot-commons'
+

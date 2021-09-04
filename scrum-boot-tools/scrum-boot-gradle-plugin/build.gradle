@@ -1,0 +1,27 @@
+plugins {
+    id "java-gradle-plugin"
+}
+
+dependencies {
+    implementation (
+            "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion",
+            "io.spring.gradle:dependency-management-plugin:1.0.11.RELEASE"
+    )
+}
+
+gradlePlugin {
+    plugins {
+        bootPlugin {
+            id = "com.yomursin.scrum.boot"
+            displayName = "ScrumBoot Gradle Plugin"
+            description = "ScrumBoot Gradle Plugin"
+            implementationClass = 'org.springframework.boot.gradle.plugin.ScrumBootPlugin'
+        }
+    }
+}
+
+jar {
+    manifest {
+        attributes("Implementation-Version": "$project.version")
+    }
+}

@@ -1,0 +1,38 @@
+plugins {
+    id 'java-platform'
+}
+
+apply from: "$rootDir/gradle/publications.gradle"
+
+description = "Scrum Boot Framework (Bill of Materials)"
+
+javaPlatform {
+    allowDependencies()
+}
+
+dependencies {
+    api platform("org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}")
+    api platform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
+    api platform("com.alibaba.cloud:spring-cloud-alibaba-dependencies:${alibabaCloudVersion}")
+    api platform("org.activiti:activiti-dependencies:${activitiVersion}")
+    api platform("io.netty:netty-bom:${nettyVersion}")
+    constraints {
+        api "com.baomidou:mybatis-plus-boot-starter:${mybatisPlusVersion}"
+        api "org.springdoc:springdoc-openapi:${springdocVersion}"
+        api "com.google.guava:guava:${guavaVersion}"
+        api "com.github.promeg:tinypinyin:${tinyPinyVersion}"
+        rootProject.subprojects {pro ->
+            pro.plugins.withType(JavaPlugin).whenPluginAdded {
+                api pro
+            }
+        }
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.javaPlatform
+        }
+    }
+}

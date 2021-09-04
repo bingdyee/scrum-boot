@@ -1,0 +1,88 @@
+plugins {
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE' apply false
+}
+
+ext {
+    set('mybatisPlusVersion', '3.4.3')
+    set('guavaVersion', '30.1.1-jre')
+    set('activitiVersion', '7.1.0-M14')
+    set('nettyVersion', '4.1.67.Final')
+    set('springdocVersion', '1.5.10')
+    set('tinyPinyVersion', '2.0.3')
+}
+
+configure(allprojects) { project ->
+    apply plugin: 'io.spring.dependency-management'
+    apply from: "$rootDir/gradle/publications.gradle"
+
+    repositories {
+        mavenLocal()
+        maven { url "https://maven.aliyun.com/repository/public" }
+        mavenCentral()
+        maven { url "https://artifacts.alfresco.com/nexus/content/repositories/activiti-releases" }
+    }
+
+    configurations.all {
+        resolutionStrategy.cacheChangingModulesFor 0, "minutes"
+        resolutionStrategy.cacheDynamicVersionsFor 0, "seconds"
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+            mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
+            mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:${alibabaCloudVersion}"
+            mavenBom "org.activiti:activiti-dependencies:${activitiVersion}"
+            mavenBom "io.netty:netty-bom:${nettyVersion}"
+        }
+        dependencies {
+            dependency "com.baomidou:mybatis-plus-boot-starter:${mybatisPlusVersion}"
+            dependency "org.springdoc:springdoc-openapi:${springdocVersion}"
+            dependency "com.google.guava:guava:${guavaVersion}"
+            dependency "com.github.promeg:tinypinyin:${tinyPinyVersion}"
+        }
+        generatedPomCustomization {
+            enabled = false
+        }
+    }
+
+}
+
+configure(subprojects) { project ->
+    group "com.yomursin.scrum"
+
+    plugins.withType(JavaPlugin) {
+
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+
+        publishing {
+            publications {
+                mavenJava(MavenPublication) {
+                    version "$version"
+                    from components.java
+                    versionMapping {
+                        usage('java-api') {
+                            fromResolutionOf('runtimeClasspath')
+                        }
+                        usage('java-runtime') {
+                            fromResolutionResult()
+                        }
+                    }
+                }
+            }
+        }
+
+        configurations {
+            compileOnly {
+                extendsFrom annotationProcessor
+            }
+        }
+
+        test {
+            useJUnitPlatform()
+        }
+    }
+
+}
