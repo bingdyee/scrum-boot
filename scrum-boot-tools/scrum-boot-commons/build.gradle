@@ -5,6 +5,7 @@ plugins {
 dependencies {
     implementation (
             'com.fasterxml.jackson.core:jackson-databind',
+            'com.nimbusds:nimbus-jose-jwt',
             'com.google.guava:guava',
             'cglib:cglib'
     )
