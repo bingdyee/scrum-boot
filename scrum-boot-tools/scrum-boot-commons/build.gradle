@@ -9,5 +9,7 @@ dependencies {
             'com.google.guava:guava',
             'cglib:cglib'
     )
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }
