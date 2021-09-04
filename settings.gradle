@@ -13,4 +13,5 @@ include 'scrum-boot-tools:scrum-boot-devtools'
 findProject(':scrum-boot-tools:scrum-boot-devtools')?.name = 'scrum-boot-devtools'
 include 'scrum-boot-sphere:uac-scrum-boot'
 findProject(':scrum-boot-sphere:uac-scrum-boot')?.name = 'uac-scrum-boot'
+include 'scrum-boot-incubators'
 
