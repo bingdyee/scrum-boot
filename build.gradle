@@ -10,6 +10,8 @@ ext {
     set('nettyVersion', '4.1.67.Final')
     set('springdocVersion', '1.5.10')
     set('tinyPinyVersion', '2.0.3')
+    set('lombokVersion', '1.18.20')
+    set('cglibVersion', '3.3.0')
 }
 
 configure(allprojects) { project ->
@@ -42,6 +44,8 @@ configure(allprojects) { project ->
             dependency "org.springdoc:springdoc-openapi:${springdocVersion}"
             dependency "com.google.guava:guava:${guavaVersion}"
             dependency "com.github.promeg:tinypinyin:${tinyPinyVersion}"
+            dependency "org.projectlombok:lombok:${lombokVersion}"
+            dependency "cglib:cglib:${cglibVersion}"
         }
         generatedPomCustomization {
             enabled = false

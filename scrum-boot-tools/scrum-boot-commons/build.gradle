@@ -3,5 +3,10 @@ plugins {
 }
 
 dependencies {
+    implementation (
+            'com.fasterxml.jackson.core:jackson-databind',
+            'com.google.guava:guava',
+            'cglib:cglib'
+    )
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }

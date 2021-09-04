@@ -19,6 +19,8 @@ dependencies {
         api "org.springdoc:springdoc-openapi:${springdocVersion}"
         api "com.google.guava:guava:${guavaVersion}"
         api "com.github.promeg:tinypinyin:${tinyPinyVersion}"
+        api "org.projectlombok:lombok:${lombokVersion}"
+        api "cglib:cglib:${cglibVersion}"
         rootProject.subprojects {pro ->
             pro.plugins.withType(JavaPlugin).whenPluginAdded {
                 api pro
