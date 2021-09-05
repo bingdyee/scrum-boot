@@ -19,7 +19,6 @@ ext {
 
 configure(allprojects) { project ->
     apply plugin: 'io.spring.dependency-management'
-    apply from: "$rootDir/src/publications.gradle"
 
     group "com.yomursin.scrum"
 
@@ -46,7 +45,7 @@ configure(allprojects) { project ->
         }
         dependencies {
             dependency "com.baomidou:mybatis-plus-boot-starter:${mybatisPlusVersion}"
-            dependency "org.springdoc:springdoc-openapi:${springdocVersion}"
+            dependency "org.springdoc:springdoc-openapi-ui:${springdocVersion}"
             dependency "org.springdoc:springdoc-openapi-security:${springdocVersion}"
             dependency "com.google.guava:guava:${guavaVersion}"
             dependency "com.github.promeg:tinypinyin:${tinyPinyVersion}"
@@ -64,7 +63,7 @@ configure(allprojects) { project ->
 }
 
 configure(subprojects) { project ->
-
+    apply from: "$rootDir/src/publications.gradle"
 
     plugins.withType(JavaPlugin) {
 

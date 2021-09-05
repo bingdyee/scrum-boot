@@ -16,7 +16,7 @@ dependencies {
     api platform("io.netty:netty-bom:${nettyVersion}")
     constraints {
         api "com.baomidou:mybatis-plus-boot-starter:${mybatisPlusVersion}"
-        api "org.springdoc:springdoc-openapi:${springdocVersion}"
+        api "org.springdoc:springdoc-openapi-ui:${springdocVersion}"
         api "org.springdoc:springdoc-openapi-security:${springdocVersion}"
         api "com.google.guava:guava:${guavaVersion}"
         api "com.github.promeg:tinypinyin:${tinyPinyVersion}"
