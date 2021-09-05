@@ -21,11 +21,20 @@ configure(allprojects) { project ->
     apply plugin: 'io.spring.dependency-management'
     apply from: "$rootDir/src/publications.gradle"
 
+    group "com.yomursin.scrum"
+
     repositories {
+//        maven {
+//            url "${centralRepoUrl}"
+//            credentials {
+//                username = "${repoUsername}"
+//                password = "${repoPassword}"
+//            }
+//        }
         mavenLocal()
-        maven { url "https://maven.aliyun.com/repository/public" }
-        mavenCentral()
+        maven { url "https://mirrors.cloud.tencent.com/nexus/repository/maven-public/" }
         maven { url "https://artifacts.alfresco.com/nexus/content/repositories/activiti-releases" }
+        mavenCentral()
     }
 
     configurations.all {
@@ -62,7 +71,7 @@ configure(allprojects) { project ->
 }
 
 configure(subprojects) { project ->
-    group "com.yomursin.scrum"
+
 
     plugins.withType(JavaPlugin) {
 
