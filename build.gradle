@@ -25,7 +25,7 @@ configure(allprojects) { project ->
 
     repositories {
         mavenLocal()
-        maven { url "https://mirrors.cloud.tencent.com/nexus/repository/maven-public/" }
+        maven { url "https://maven.aliyun.com/repository/public" }
         maven { url "https://artifacts.alfresco.com/nexus/content/repositories/activiti-releases" }
         mavenCentral()
     }
