@@ -1,0 +1,10 @@
+plugins {
+    id 'java'
+}
+
+dependencies {
+    implementation(
+            project(':scrum-boot-project:scrum-boot-tools:scrum-boot-commons')
+    )
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
