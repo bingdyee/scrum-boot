@@ -1,7 +1,5 @@
 package com.yomursin.scrum.constant;
 
-import com.yomursin.scrum.util.StringUtils;
-
 /**
  * 百家姓
  *
