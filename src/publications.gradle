@@ -11,7 +11,7 @@ publishing {
                 url = 'https://github.com/bingdyee/scrum-boot'
                 organization {
                     name = 'Scrum Boot'
-                    url = 'https://github.com/MatricsCloud'
+                    url = 'https://github.com/opensci-hub'
                 }
                 developers {
                     developer {
