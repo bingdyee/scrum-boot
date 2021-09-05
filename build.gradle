@@ -19,7 +19,7 @@ ext {
 
 configure(allprojects) { project ->
     apply plugin: 'io.spring.dependency-management'
-    apply from: "$rootDir/gradle/publications.gradle"
+    apply from: "$rootDir/src/publications.gradle"
 
     repositories {
         mavenLocal()
