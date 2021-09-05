@@ -15,7 +15,7 @@ gradlePlugin {
             id = "com.yomursin.scrum.boot"
             displayName = "ScrumBoot Gradle Plugin"
             description = "ScrumBoot Gradle Plugin"
-            implementationClass = 'org.springframework.boot.gradle.plugin.ScrumBootPlugin'
+            implementationClass = 'com.yomursin.scrum.boot.gradle.plugin.ScrumBootPlugin'
         }
     }
 }

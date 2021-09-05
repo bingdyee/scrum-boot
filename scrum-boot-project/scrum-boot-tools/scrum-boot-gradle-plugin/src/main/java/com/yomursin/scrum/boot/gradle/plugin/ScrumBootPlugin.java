@@ -1,10 +1,11 @@
-package org.springframework.boot.gradle.plugin;
+package com.yomursin.scrum.boot.gradle.plugin;
 
 import io.spring.gradle.dependencymanagement.DependencyManagementPlugin;
 import io.spring.gradle.dependencymanagement.dsl.DependencyManagementExtension;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 import org.gradle.api.plugins.PluginContainer;
+import org.springframework.boot.gradle.plugin.SpringBootPlugin;
 import org.springframework.boot.gradle.util.VersionExtractor;
 
 import java.util.Objects;

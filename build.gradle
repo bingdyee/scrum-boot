@@ -24,13 +24,6 @@ configure(allprojects) { project ->
     group "com.yomursin.scrum"
 
     repositories {
-//        maven {
-//            url "${centralRepoUrl}"
-//            credentials {
-//                username = "${repoUsername}"
-//                password = "${repoPassword}"
-//            }
-//        }
         mavenLocal()
         maven { url "https://mirrors.cloud.tencent.com/nexus/repository/maven-public/" }
         maven { url "https://artifacts.alfresco.com/nexus/content/repositories/activiti-releases" }
