@@ -25,6 +25,7 @@ dependencies {
         api "javax.servlet:javax.servlet-api:${servletApiVersion}"
         api "net.java.dev.jna:jna:${jnaVersion}"
         api "org.openjdk.jol:jol-core:${jolVersion}"
+        api "com.alibaba:easyexcel:${easyexcelVersion}"
         rootProject.subprojects {pro ->
             pro.plugins.withType(JavaPlugin).whenPluginAdded {
                 api pro

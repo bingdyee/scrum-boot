@@ -15,6 +15,7 @@ ext {
     set('validationApiVersion', '2.0.1.Final')
     set('jnaVersion', '5.9.0')
     set('jolVersion', '0.16')
+    set('easyexcelVersion', '2.2.10')
 }
 
 configure(allprojects) { project ->
@@ -37,7 +38,6 @@ configure(allprojects) { project ->
     dependencyManagement {
         imports {
             mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
             mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
             mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:${alibabaCloudVersion}"
             mavenBom "org.activiti:activiti-dependencies:${activitiVersion}"
@@ -54,6 +54,7 @@ configure(allprojects) { project ->
             dependency "javax.validation:validation-api:${validationApiVersion}"
             dependency "net.java.dev.jna:jna:${jnaVersion}"
             dependency "org.openjdk.jol:jol-core:${jolVersion}"
+            dependency "com.alibaba:easyexcel:${easyexcelVersion}"
         }
         generatedPomCustomization {
             enabled = false

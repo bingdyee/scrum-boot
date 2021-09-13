@@ -1,6 +1,9 @@
-apply plugin: 'java'
+plugins {
+    id 'java'
+}
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
