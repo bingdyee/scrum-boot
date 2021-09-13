@@ -21,7 +21,7 @@ ext {
 configure(allprojects) { project ->
     apply plugin: 'io.spring.dependency-management'
 
-    group "com.yomursin.scrum"
+    group "com.rechaox.scrum"
 
     repositories {
         mavenLocal()

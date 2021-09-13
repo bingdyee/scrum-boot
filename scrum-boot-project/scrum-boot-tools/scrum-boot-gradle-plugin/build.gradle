@@ -12,10 +12,10 @@ dependencies {
 gradlePlugin {
     plugins {
         bootPlugin {
-            id = "com.yomursin.scrum.boot"
+            id = "com.rechaox.scrum-boot"
             displayName = "ScrumBoot Gradle Plugin"
             description = "ScrumBoot Gradle Plugin"
-            implementationClass = 'com.yomursin.scrum.boot.gradle.plugin.ScrumBootPlugin'
+            implementationClass = 'com.rechaox.scrum.boot.gradle.plugin.ScrumBootPlugin'
         }
     }
 }
