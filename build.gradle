@@ -24,7 +24,6 @@ configure(allprojects) { project ->
     group "com.rechaox.scrum"
 
     repositories {
-        mavenLocal()
         maven { url "https://maven.aliyun.com/repository/public" }
         maven { url "https://artifacts.alfresco.com/nexus/content/repositories/activiti-releases" }
         mavenCentral()

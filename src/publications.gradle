@@ -10,8 +10,8 @@ publishing {
                 }
                 url = 'https://github.com/bingdyee/scrum-boot'
                 organization {
-                    name = 'Scrum Boot'
-                    url = 'https://github.com/opensci-hub'
+                    name = 'RechaoX'
+                    url = 'https://github.com/rechaox'
                 }
                 developers {
                     developer {
