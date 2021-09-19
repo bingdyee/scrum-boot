@@ -13,3 +13,6 @@ include 'scrum-boot-project:scrum-boot-tools:scrum-boot-commons'
 include 'scrum-boot-project:scrum-boot-starters:web-scrum-boot-starter'
 include 'scrum-incubators'
 include 'scrum-samples'
+include 'scrum-incubators:scrum-incubators-ddd'
+findProject(':scrum-incubators:scrum-incubators-ddd')?.name = 'scrum-incubators-ddd'
+
