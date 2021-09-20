@@ -16,6 +16,7 @@ ext {
     set('jnaVersion', '5.9.0')
     set('jolVersion', '0.16')
     set('easyexcelVersion', '2.2.10')
+    set('authServerVersion', '0.2.0')
 }
 
 configure(allprojects) { project ->
@@ -43,6 +44,7 @@ configure(allprojects) { project ->
             mavenBom "io.netty:netty-bom:${nettyVersion}"
         }
         dependencies {
+            dependency "org.springframework.security:spring-security-oauth2-authorization-server:${authServerVersion}"
             dependency "com.baomidou:mybatis-plus-boot-starter:${mybatisPlusVersion}"
             dependency "org.springdoc:springdoc-openapi-ui:${springdocVersion}"
             dependency "org.springdoc:springdoc-openapi-security:${springdocVersion}"
