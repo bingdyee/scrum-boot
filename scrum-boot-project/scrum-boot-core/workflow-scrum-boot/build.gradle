@@ -1,0 +1,10 @@
+plugins {
+    id 'java'
+}
+
+dependencies {
+    implementation(
+            'org.activiti:activiti-spring-boot-starter' ,
+            project(':scrum-boot-project:scrum-boot-tools:scrum-boot-commons')
+    )
+}
