@@ -4,6 +4,7 @@ import com.rechaox.scrum.log.Operator;
 import com.rechaox.scrum.log.annotation.EnableOperateLog;
 import com.rechaox.scrum.log.service.OperateLogService;
 import com.rechaox.scrum.log.service.OperatorGetService;
+import com.rechaox.scrum.log.support.BeanFactoryOperateLogAdvisor;
 import com.rechaox.scrum.log.support.OperateLogInterceptor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
@@ -24,6 +25,12 @@ public class OperateLogAutoConfiguration implements ImportAware {
     @Bean
     public OperateLogInterceptor operateLogInterceptor() {
         return new OperateLogInterceptor();
+    }
+
+    public BeanFactoryOperateLogAdvisor beanFactoryOperateLogAdvisor() {
+        BeanFactoryOperateLogAdvisor advisor = new BeanFactoryOperateLogAdvisor();
+        advisor.setAdvice(operateLogInterceptor());
+        return advisor;
     }
 
     @Bean

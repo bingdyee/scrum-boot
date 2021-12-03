@@ -13,6 +13,7 @@ import java.lang.reflect.Method;
  * @author Bing D. Yee
  * @since 2021/09/25
  */
+@Deprecated
 public class OperateLogSupport extends AbstractAutoProxyCreator {
 
     private final Advisor advisor = new DefaultIntroductionAdvisor(new OperateLogInterceptor());
