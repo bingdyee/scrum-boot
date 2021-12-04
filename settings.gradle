@@ -19,4 +19,6 @@ include 'scrum-samples:resourceserver'
 include 'scrum-samples:authclient'
 include 'scrum-boot-project:scrum-boot-core:log-scrum-boot'
 include 'scrum-boot-project:scrum-boot-core:workflow-scrum-boot'
+include 'scrum-boot-project:scrum-boot-core:drools-scrum-boot'
+findProject(':scrum-boot-project:scrum-boot-core:drools-scrum-boot')?.name = 'drools-scrum-boot'
 

@@ -17,6 +17,7 @@ ext {
     set('jolVersion', '0.16')
     set('easyexcelVersion', '2.2.10')
     set('authServerVersion', '0.2.0')
+    set('droolsVersion', '7.62.0.Final')
 }
 
 configure(allprojects) { project ->
@@ -56,6 +57,11 @@ configure(allprojects) { project ->
             dependency "net.java.dev.jna:jna:${jnaVersion}"
             dependency "org.openjdk.jol:jol-core:${jolVersion}"
             dependency "com.alibaba:easyexcel:${easyexcelVersion}"
+            dependency "org.drools:drools-core:${droolsVersion}"
+            dependency "org.drools:drools-compiler:${droolsVersion}"
+            dependency "org.drools:drools-templates:${droolsVersion}"
+            dependency "org.kie:kie-api:${droolsVersion}"
+            dependency "org.kie:kie-spring:${droolsVersion}"
         }
         generatedPomCustomization {
             enabled = false
