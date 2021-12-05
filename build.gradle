@@ -18,6 +18,7 @@ ext {
     set('easyexcelVersion', '2.2.10')
     set('authServerVersion', '0.2.0')
     set('droolsVersion', '7.62.0.Final')
+    set('flowableVersion', '6.7.1')
 }
 
 configure(allprojects) { project ->
@@ -62,6 +63,11 @@ configure(allprojects) { project ->
             dependency "org.drools:drools-templates:${droolsVersion}"
             dependency "org.kie:kie-api:${droolsVersion}"
             dependency "org.kie:kie-spring:${droolsVersion}"
+            dependency "org.flowable:flowable-spring-boot-starter:${flowableVersion}"
+            dependency "javax.xml.bind:jaxb-api:2.3.1"
+            dependency "com.sun.xml.bind:jaxb-core:3.0.2"
+            dependency "com.sun.xml.bind:jaxb-impl:3.0.2"
+            dependency "javax.activation:activation:1.1.1"
         }
         generatedPomCustomization {
             enabled = false

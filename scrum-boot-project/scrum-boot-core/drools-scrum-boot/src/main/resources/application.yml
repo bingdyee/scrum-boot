@@ -4,3 +4,6 @@ server:
 spring:
   application:
     name: drools-scrum-boot
+
+drools:
+  rules-path: classpath*:rules/*.drl
