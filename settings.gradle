@@ -22,4 +22,4 @@ include 'scrum-boot-project:scrum-boot-core:workflow-scrum-boot'
 include 'scrum-boot-project:scrum-boot-core:drools-scrum-boot'
 include 'scrum-incubators:scrum-workflow'
 include 'scrum-incubators:scrum-uims'
-
+include 'scrum-incubators:scrum-syncer'
