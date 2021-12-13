@@ -23,3 +23,6 @@ include 'scrum-boot-project:scrum-boot-core:drools-scrum-boot'
 include 'scrum-incubators:scrum-workflow'
 include 'scrum-incubators:scrum-uims'
 include 'scrum-incubators:scrum-syncer'
+include 'scrum-samples:colab'
+findProject(':scrum-samples:colab')?.name = 'colab'
+
