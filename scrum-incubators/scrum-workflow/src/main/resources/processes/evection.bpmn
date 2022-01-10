@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1ftux3i" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.9.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
+  <bpmn:process id="Evection_process" name="出差流程" isExecutable="true" camunda:versionTag="1.0.0">
+    <bpmn:startEvent id="StartEvent_1" name="开始">
+      <bpmn:outgoing>Flow_0hugnvv</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0hugnvv" sourceRef="StartEvent_1" targetRef="submit_evection" />
+    <bpmn:sequenceFlow id="Flow_1ywk9q4" sourceRef="submit_evection" targetRef="dept_approval" />
+    <bpmn:exclusiveGateway id="Gateway_0spq83a" name="是否大于72小时">
+      <bpmn:incoming>Flow_1pnzef7</bpmn:incoming>
+      <bpmn:outgoing>Flow_1igtcc1</bpmn:outgoing>
+      <bpmn:outgoing>Flow_06e13sx</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_1pnzef7" sourceRef="dept_approval" targetRef="Gateway_0spq83a" />
+    <bpmn:sequenceFlow id="Flow_1igtcc1" name="是" sourceRef="Gateway_0spq83a" targetRef="ceo_approval">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${hours&gt;72}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_12etnyk" sourceRef="ceo_approval" targetRef="financial_approval" />
+    <bpmn:endEvent id="EndEvent_1" name="结束">
+      <bpmn:incoming>Flow_17p8raf</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_17p8raf" sourceRef="financial_approval" targetRef="EndEvent_1" />
+    <bpmn:sequenceFlow id="Flow_06e13sx" name="否" sourceRef="Gateway_0spq83a" targetRef="financial_approval">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${hours&lt;=72}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:userTask id="submit_evection" name="提交申请">
+      <bpmn:incoming>Flow_0hugnvv</bpmn:incoming>
+      <bpmn:outgoing>Flow_1ywk9q4</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="dept_approval" name="部门经理审核">
+      <bpmn:incoming>Flow_1ywk9q4</bpmn:incoming>
+      <bpmn:outgoing>Flow_1pnzef7</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="ceo_approval" name="总经理审批">
+      <bpmn:incoming>Flow_1igtcc1</bpmn:incoming>
+      <bpmn:outgoing>Flow_12etnyk</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="financial_approval" name="财务审批">
+      <bpmn:incoming>Flow_12etnyk</bpmn:incoming>
+      <bpmn:incoming>Flow_06e13sx</bpmn:incoming>
+      <bpmn:outgoing>Flow_17p8raf</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Evection_process">
+      <bpmndi:BPMNEdge id="Flow_0hugnvv_di" bpmnElement="Flow_0hugnvv">
+        <di:waypoint x="215" y="177" />
+        <di:waypoint x="270" y="177" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ywk9q4_di" bpmnElement="Flow_1ywk9q4">
+        <di:waypoint x="370" y="177" />
+        <di:waypoint x="430" y="177" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1pnzef7_di" bpmnElement="Flow_1pnzef7">
+        <di:waypoint x="530" y="177" />
+        <di:waypoint x="595" y="177" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1igtcc1_di" bpmnElement="Flow_1igtcc1">
+        <di:waypoint x="645" y="177" />
+        <di:waypoint x="710" y="177" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="672" y="159" width="11" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_12etnyk_di" bpmnElement="Flow_12etnyk">
+        <di:waypoint x="810" y="177" />
+        <di:waypoint x="880" y="177" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_17p8raf_di" bpmnElement="Flow_17p8raf">
+        <di:waypoint x="980" y="177" />
+        <di:waypoint x="1052" y="177" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_06e13sx_di" bpmnElement="Flow_06e13sx">
+        <di:waypoint x="620" y="152" />
+        <di:waypoint x="620" y="100" />
+        <di:waypoint x="930" y="100" />
+        <di:waypoint x="930" y="137" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="770" y="82" width="11" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="159" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="186" y="202" width="22" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0spq83a_di" bpmnElement="Gateway_0spq83a" isMarkerVisible="true">
+        <dc:Bounds x="595" y="152" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="581" y="209" width="79" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_079bv8g_di" bpmnElement="EndEvent_1">
+        <dc:Bounds x="1052" y="159" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1059" y="202" width="22" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_159adf5_di" bpmnElement="submit_evection">
+        <dc:Bounds x="270" y="137" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_02fod3v_di" bpmnElement="dept_approval">
+        <dc:Bounds x="430" y="137" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_07c3l94_di" bpmnElement="ceo_approval">
+        <dc:Bounds x="710" y="137" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_16zljuz_di" bpmnElement="financial_approval">
+        <dc:Bounds x="880" y="137" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

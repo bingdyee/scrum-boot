@@ -2,7 +2,9 @@ package com.rechaox.incubators.workflow.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 /**
  * @author Bing D. Yee
@@ -13,7 +15,7 @@ public class WorkflowConfig {
 
     @Bean
     public UserDetailsService userDetailsService() {
-        return null;
+        return username -> null;
     }
 
 }

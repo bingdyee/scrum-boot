@@ -6,7 +6,7 @@ plugins {
 ext {
     set('mybatisPlusVersion', '3.4.3')
     set('guavaVersion', '30.1.1-jre')
-    set('activitiVersion', '7.1.0-M14')
+    set('activitiVersion', '7.1.0-M16')
     set('nettyVersion', '4.1.67.Final')
     set('springdocVersion', '1.5.10')
     set('tinyPinyVersion', '2.0.3')
@@ -16,7 +16,7 @@ ext {
     set('jnaVersion', '5.9.0')
     set('jolVersion', '0.16')
     set('easyexcelVersion', '2.2.10')
-    set('authServerVersion', '0.2.0')
+    set('authServerVersion', '0.2.1')
     set('droolsVersion', '7.62.0.Final')
     set('flowableVersion', '6.7.1')
 }
