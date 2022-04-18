@@ -1,3 +1,6 @@
-plugins {
-    id 'checkstyle'
+apply plugin: "checkstyle"
+
+checkstyle {
+    toolVersion = "9.2.1"
+    configFile = rootProject.file("src/checkstyle/checkstyle.xml")
 }

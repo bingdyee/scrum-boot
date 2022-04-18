@@ -8,24 +8,31 @@ javaPlatform {
     allowDependencies()
 }
 
+ext {
+    set('mybatisPlusVersion', '3.5.1')
+    set('springdocVersion', '1.6.7')
+    set('guavaVersion', '31.1-jre')
+    set('velocityVersion', '2.3')
+    set('tinyPinyVersion', '2.0.3')
+    set('zxingVersion', '3.4.1')
+    set('cglibVersion', '3.3.0')
+}
+
 dependencies {
-    api platform("org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}")
-    api platform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
-    api platform("com.alibaba.cloud:spring-cloud-alibaba-dependencies:${alibabaCloudVersion}")
-    api platform("org.activiti:activiti-dependencies:${activitiVersion}")
-    api platform("io.netty:netty-bom:${nettyVersion}")
+    api platform("org.springframework.boot:spring-boot-dependencies:$springBootVersion")
+    api platform("org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion")
+    api platform("com.alibaba.cloud:spring-cloud-alibaba-dependencies:$alibabaCloudVersion")
+    api platform("com.google.zxing:zxing-parent:3.4.1")
     constraints {
-        api "com.baomidou:mybatis-plus-boot-starter:${mybatisPlusVersion}"
-        api "org.springdoc:springdoc-openapi-ui:${springdocVersion}"
-        api "org.springdoc:springdoc-openapi-security:${springdocVersion}"
-        api "com.google.guava:guava:${guavaVersion}"
-        api "com.github.promeg:tinypinyin:${tinyPinyVersion}"
-        api "cglib:cglib:${cglibVersion}"
-        api "javax.validation:validation-api:${validationApiVersion}"
-        api "javax.servlet:javax.servlet-api:${servletApiVersion}"
-        api "net.java.dev.jna:jna:${jnaVersion}"
-        api "org.openjdk.jol:jol-core:${jolVersion}"
-        api "com.alibaba:easyexcel:${easyexcelVersion}"
+        api "com.baomidou:mybatis-plus-boot-starter:$mybatisPlusVersion"
+        api "com.baomidou:mybatis-plus-generator:$mybatisPlusVersion"
+        api "com.baomidou:mybatis-plus:$mybatisPlusVersion"
+        api "org.springdoc:springdoc-openapi-ui:$springdocVersion"
+        api "org.springdoc:springdoc-openapi-security:$springdocVersion"
+        api "com.google.guava:guava:$guavaVersion"
+        api "org.apache.velocity:velocity-engine-core:${velocityVersion}"
+        api "com.github.promeg:tinypinyin:$tinyPinyVersion"
+        api "cglib:cglib:$cglibVersion"
         rootProject.subprojects {pro ->
             pro.plugins.withType(JavaPlugin).whenPluginAdded {
                 api pro

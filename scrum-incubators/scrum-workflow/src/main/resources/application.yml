@@ -1,7 +1,0 @@
-spring:
-  datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:~/h2database/act_workflow
-  activiti:
-    db-history-used: true
-    history-level: full

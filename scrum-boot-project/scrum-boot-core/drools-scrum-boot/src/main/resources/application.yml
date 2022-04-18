@@ -1,9 +1,0 @@
-server:
-  port: 9090
-
-spring:
-  application:
-    name: drools-scrum-boot
-
-drools:
-  rules-path: classpath*:rules/*.drl

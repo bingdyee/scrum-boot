@@ -14,8 +14,8 @@
     <!-- https://checkstyle.org/config_filters.html#SuppressionFilter -->
     <module name="SuppressionFilter">
         <property name="file" value="${org.checkstyle.google.suppressionfilter.config}"
-                  default="checkstyle-suppressions.xml" />
-<!--        <property name="file" value="${config_loc}/checkstyle-suppressions.xml"/>-->
+                  default="suppressions.xml" />
+<!--        <property name="file" value="${config_loc}/suppressions.xml"/>-->
         <property name="optional" value="true"/>
     </module>
     <!-- Checks for whitespace                               -->
@@ -229,12 +229,12 @@
                      value="GenericWhitespace ''{0}'' is not preceded with whitespace."/>
         </module>
         <module name="Indentation">
-            <property name="basicOffset" value="2"/>
-            <property name="braceAdjustment" value="2"/>
-            <property name="caseIndent" value="2"/>
-            <property name="throwsIndent" value="4"/>
-            <property name="lineWrappingIndentation" value="4"/>
-            <property name="arrayInitIndent" value="2"/>
+            <property name="basicOffset" value="4"/>
+            <property name="braceAdjustment" value="4"/>
+            <property name="caseIndent" value="4"/>
+            <property name="throwsIndent" value="8"/>
+            <property name="lineWrappingIndentation" value="8"/>
+            <property name="arrayInitIndent" value="4"/>
         </module>
         <module name="AbbreviationAsWordInName">
             <property name="ignoreFinal" value="false"/>
@@ -293,9 +293,12 @@
         <module name="NonEmptyAtclauseDescription"/>
         <module name="InvalidJavadocPosition"/>
         <module name="JavadocTagContinuationIndentation"/>
-        <module name="SummaryJavadoc">
-            <property name="forbiddenSummaryFragments"
-                      value="^@return the *|^This method returns |^A [{]@code [a-zA-Z0-9]+[}]( is a )"/>
+<!--        <module name="SummaryJavadoc">-->
+<!--            <property name="forbiddenSummaryFragments"-->
+<!--                      value="^@return the *|^This method returns |^A [{]@code [a-zA-Z0-9]+[}]( is a )"/>-->
+<!--        </module>-->
+        <module name="JavadocStyle">
+            <property name="checkFirstSentence" value="false"/>
         </module>
         <module name="JavadocParagraph"/>
         <module name="RequireEmptyLineBeforeBlockTagGroup"/>

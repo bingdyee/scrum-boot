@@ -3,8 +3,8 @@ plugins {
 }
 
 dependencies {
-    implementation (
-            "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}",
+    implementation(
+            "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion",
             "io.spring.gradle:dependency-management-plugin:1.0.11.RELEASE"
     )
 }
@@ -12,10 +12,8 @@ dependencies {
 gradlePlugin {
     plugins {
         bootPlugin {
-            id = "com.rechaox.scrum-boot"
-            displayName = "ScrumBoot Gradle Plugin"
-            description = "ScrumBoot Gradle Plugin"
-            implementationClass = 'com.rechaox.scrum.boot.gradle.plugin.ScrumBootPlugin'
+            id = 'io.github.scrumboot'
+            implementationClass = 'io.github.scrumboot.gradle.ScrumBootPlugin'
         }
     }
 }

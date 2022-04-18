@@ -1,0 +1,7 @@
+plugins {
+    id 'java'
+}
+
+dependencies {
+    implementation platform(project(':scrum-boot-project:scrum-boot-dependencies'))
+}

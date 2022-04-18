@@ -1,0 +1,20 @@
+plugins {
+    id 'java-scrumboot-library'
+}
+
+description = "A repository of reusable Java components"
+
+dependencies {
+    implementation(
+            'org.apache.httpcomponents:httpclient',
+            'org.apache.httpcomponents:httpcore',
+            'com.fasterxml.jackson.core:jackson-databind',
+            'javax.validation:validation-api',
+            'com.baomidou:mybatis-plus',
+            'com.google.guava:guava',
+            'com.google.zxing:core',
+            'com.google.zxing:javase',
+            'cglib:cglib'
+    )
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}

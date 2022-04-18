@@ -3,81 +3,24 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.11.RELEASE' apply false
 }
 
-ext {
-    set('mybatisPlusVersion', '3.4.3')
-    set('guavaVersion', '30.1.1-jre')
-    set('activitiVersion', '7.1.0-M16')
-    set('nettyVersion', '4.1.67.Final')
-    set('springdocVersion', '1.5.10')
-    set('tinyPinyVersion', '2.0.3')
-    set('cglibVersion', '3.3.0')
-    set('servletApiVersion', '4.0.1')
-    set('validationApiVersion', '2.0.1.Final')
-    set('jnaVersion', '5.9.0')
-    set('jolVersion', '0.16')
-    set('easyexcelVersion', '2.2.10')
-    set('authServerVersion', '0.2.1')
-    set('droolsVersion', '7.62.0.Final')
-    set('flowableVersion', '6.7.1')
-}
-
-configure(allprojects) { project ->
-    apply plugin: 'io.spring.dependency-management'
-
-    group "com.rechaox.scrum"
+allprojects {
+    group = "io.github"
 
     repositories {
+        mavenLocal()
         maven { url "https://maven.aliyun.com/repository/public" }
-        maven { url "https://artifacts.alfresco.com/nexus/content/repositories/activiti-releases" }
         mavenCentral()
+        maven { url "https://artifacts.alfresco.com/nexus/content/repositories/activiti-releases" }
     }
 
     configurations.all {
         resolutionStrategy.cacheChangingModulesFor 0, "minutes"
         resolutionStrategy.cacheDynamicVersionsFor 0, "seconds"
     }
-
-    dependencyManagement {
-        imports {
-            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-            mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
-            mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:${alibabaCloudVersion}"
-            mavenBom "org.activiti:activiti-dependencies:${activitiVersion}"
-            mavenBom "io.netty:netty-bom:${nettyVersion}"
-        }
-        dependencies {
-            dependency "org.springframework.security:spring-security-oauth2-authorization-server:${authServerVersion}"
-            dependency "com.baomidou:mybatis-plus-boot-starter:${mybatisPlusVersion}"
-            dependency "org.springdoc:springdoc-openapi-ui:${springdocVersion}"
-            dependency "org.springdoc:springdoc-openapi-security:${springdocVersion}"
-            dependency "com.google.guava:guava:${guavaVersion}"
-            dependency "com.github.promeg:tinypinyin:${tinyPinyVersion}"
-            dependency "cglib:cglib:${cglibVersion}"
-            dependency "javax.servlet:javax.servlet-api:${servletApiVersion}"
-            dependency "javax.validation:validation-api:${validationApiVersion}"
-            dependency "net.java.dev.jna:jna:${jnaVersion}"
-            dependency "org.openjdk.jol:jol-core:${jolVersion}"
-            dependency "com.alibaba:easyexcel:${easyexcelVersion}"
-            dependency "org.drools:drools-core:${droolsVersion}"
-            dependency "org.drools:drools-compiler:${droolsVersion}"
-            dependency "org.drools:drools-templates:${droolsVersion}"
-            dependency "org.kie:kie-api:${droolsVersion}"
-            dependency "org.kie:kie-spring:${droolsVersion}"
-            dependency "org.flowable:flowable-spring-boot-starter:${flowableVersion}"
-            dependency "javax.xml.bind:jaxb-api:2.3.1"
-            dependency "com.sun.xml.bind:jaxb-core:3.0.2"
-            dependency "com.sun.xml.bind:jaxb-impl:3.0.2"
-            dependency "javax.activation:activation:1.1.1"
-            dependency "com.zendesk:mysql-binlog-connector-java:0.25.4"
-        }
-        generatedPomCustomization {
-            enabled = false
-        }
-    }
-
 }
 
-configure(subprojects) { project ->
+subprojects {
+
     apply from: "$rootDir/src/publications.gradle"
 
     plugins.withType(JavaPlugin) {
@@ -115,6 +58,7 @@ configure(subprojects) { project ->
         test {
             useJUnitPlatform()
         }
+
     }
 
 }

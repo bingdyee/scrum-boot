@@ -1,3 +1,6 @@
-plugins {
-    id 'jacoco'
+apply plugin: "jacoco"
+
+jacoco {
+    toolVersion = "0.8.7"
+    reportsDirectory = layout.buildDirectory.dir('reports/coverage')
 }

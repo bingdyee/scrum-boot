@@ -43,7 +43,7 @@ publishing {
                 username "$repoUsername"
                 password "$repoPassword"
             }
-            url = "${centralRepoUrl}"
+            url = version.endsWith('SNAPSHOT') ? "$snapshotRepoUrl" : "$releaseRepoUrl"
         }
     }
 }

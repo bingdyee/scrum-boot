@@ -1,0 +1,17 @@
+plugins {
+    id 'java-scrumboot-library'
+}
+
+description("Spring Security Ext")
+
+dependencies {
+    implementation(
+            'org.springframework.boot:spring-boot-starter-web',
+            'org.springframework.boot:spring-boot-starter-security',
+            'org.springframework.boot:spring-boot-starter-data-redis',
+            'org.springdoc:springdoc-openapi-ui',
+            'org.springdoc:springdoc-openapi-security',
+            'commons-codec:commons-codec',
+            project(':scrum-boot-project:scrum-boot-tools:scrum-boot-langs')
+    )
+}
