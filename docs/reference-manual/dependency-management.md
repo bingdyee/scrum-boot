@@ -4,7 +4,7 @@
 
 ```xml
 <parent>
-    <groupId>com.yomursin.scrum</groupId>
+    <groupId>io.github</groupId>
     <artifactId>scrum-boot-dependencies</artifactId>
     <version>${scrum.boot.version}</version>
 </parent>
@@ -19,15 +19,16 @@ buildscript {
     }
     repositories {
         mavenLocal()
+        maven { url "https://maven.aliyun.com/repository/public" }
         mavenCentral()
     }
     dependencies {
-        classpath("com.yomursin.scrum:scrum-boot-gradle-plugin:${scrumBootVersion}")
+        classpath("io.github:scrum-boot-gradle-plugin:${scrumBootVersion}")
     }
 }
 
 apply plugin: 'java'
-apply plugin: 'com.yomursin.scrum.boot'
+apply plugin: 'io.github.scrumboot'
 apply plugin: 'io.spring.dependency-management'
 
 repositories {
@@ -37,7 +38,7 @@ repositories {
 }
 
 dependencies {
-    implementation('com.yomursin.scrum:web-scrum-boot-starter')
+    implementation('io.github:web-scrum-boot-starter')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
 }
 
