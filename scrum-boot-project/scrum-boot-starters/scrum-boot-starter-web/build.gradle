@@ -6,6 +6,7 @@ description("Spring Web Ext")
 
 dependencies {
     implementation(
-            'org.springframework.boot:spring-boot-starter-web'
+            'org.springframework.boot:spring-boot-starter-web',
+            project(':scrum-boot-project:scrum-boot-tools:scrum-boot-langs')
     )
 }
