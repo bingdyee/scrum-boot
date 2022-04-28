@@ -10,5 +10,5 @@ include 'scrum-boot-project:scrum-boot-starters:scrum-boot-starter-web'
 include 'scrum-incubators'
 include 'scrum-samples'
 include 'scrum-boot-project:scrum-boot-starters:scrum-boot-starter-log'
-findProject(':scrum-boot-project:scrum-boot-starters:scrum-boot-starter-log')?.name = 'scrum-boot-starter-log'
+include 'scrum-incubators:scrum-flowable'
 

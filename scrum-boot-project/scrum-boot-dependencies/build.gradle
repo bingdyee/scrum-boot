@@ -16,6 +16,7 @@ ext {
     set('tinyPinyVersion', '2.0.3')
     set('zxingVersion', '3.4.1')
     set('cglibVersion', '3.3.0')
+    set('flowableVersion', '6.7.2')
 }
 
 dependencies {
@@ -27,6 +28,7 @@ dependencies {
         api "com.baomidou:mybatis-plus-boot-starter:$mybatisPlusVersion"
         api "com.baomidou:mybatis-plus-generator:$mybatisPlusVersion"
         api "com.baomidou:mybatis-plus:$mybatisPlusVersion"
+        api "org.flowable:flowable-spring-boot-starter:$flowableVersion"
         api "org.springdoc:springdoc-openapi-ui:$springdocVersion"
         api "org.springdoc:springdoc-openapi-security:$springdocVersion"
         api "com.google.guava:guava:$guavaVersion"
