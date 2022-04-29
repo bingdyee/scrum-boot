@@ -11,4 +11,6 @@ include 'scrum-incubators'
 include 'scrum-samples'
 include 'scrum-boot-project:scrum-boot-starters:scrum-boot-starter-log'
 include 'scrum-incubators:scrum-flowable'
+include 'scrum-incubators:scrum-shardingsphere'
+findProject(':scrum-incubators:scrum-shardingsphere')?.name = 'scrum-shardingsphere'
 

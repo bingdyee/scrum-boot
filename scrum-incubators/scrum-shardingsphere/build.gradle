@@ -1,0 +1,19 @@
+plugins {
+    id 'java-scrumboot-library'
+}
+
+description = "Shardingsphere"
+
+dependencies {
+    implementation(
+            'org.springframework.boot:spring-boot-starter-web',
+            'com.baomidou:mybatis-plus-boot-starter',
+            'org.apache.shardingsphere:shardingsphere-jdbc-core-spring-boot-starter',
+            'com.h2database:h2',
+            project(':scrum-boot-project:scrum-boot-tools:scrum-boot-langs')
+    )
+    runtimeOnly 'mysql:mysql-connector-java'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
