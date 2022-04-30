@@ -74,6 +74,11 @@ public class UserInfoMapperTest {
     }
 
     @Test
+    public void testDelete() {
+        userInfoMapper.delete(Wrappers.emptyWrapper());
+    }
+
+    @Test
     public void testQuery() {
         final List<UserInfo> userInfos = userInfoMapper.selectBatchIds(List.of(1L, 2L, 3L, 4L));
         System.err.println(userInfos);
