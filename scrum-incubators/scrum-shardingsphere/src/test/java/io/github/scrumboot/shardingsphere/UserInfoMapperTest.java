@@ -1,10 +1,15 @@
 package io.github.scrumboot.shardingsphere;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import io.github.scrumboot.langs.SnowflakeWorker;
 import io.github.scrumboot.langs.constant.Constant;
+import io.github.scrumboot.shardingsphere.mapper.DictInfoMapper;
+import io.github.scrumboot.shardingsphere.mapper.EnumInfoMapper;
 import io.github.scrumboot.shardingsphere.mapper.UserInfoMapper;
+import io.github.scrumboot.shardingsphere.model.DictInfo;
+import io.github.scrumboot.shardingsphere.model.EnumInfo;
 import io.github.scrumboot.shardingsphere.model.UserInfo;
-import me.ahoo.cosid.snowflake.SnowflakeId;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,7 +28,32 @@ public class UserInfoMapperTest {
 
     @Autowired
     private UserInfoMapper userInfoMapper;
+    @Autowired
+    private DictInfoMapper dictInfoMapper;
+    @Autowired
+    private EnumInfoMapper enumInfoMapper;
 
+
+    @Test
+    public void testInsertDict() {
+        DictInfo dictInfo = new DictInfo("性别", "GENDER");
+        dictInfoMapper.insert(dictInfo);
+
+        EnumInfo unknown = new EnumInfo(dictInfo.getId(), "未知", "UNKNOWN", 0);
+        enumInfoMapper.insert(unknown);
+
+        EnumInfo male = new EnumInfo(dictInfo.getId(), "男", "MALE", 1);
+        enumInfoMapper.insert(male);
+
+        EnumInfo female = new EnumInfo(dictInfo.getId(), "女", "FEMALE", 2);
+        enumInfoMapper.insert(female);
+    }
+
+    @Test
+    public void testDeleteDict() {
+        dictInfoMapper.delete(Wrappers.emptyWrapper());
+        enumInfoMapper.delete(Wrappers.emptyWrapper());
+    }
 
     @Test
     public void testInsert() {

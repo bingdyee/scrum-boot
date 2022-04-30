@@ -14,6 +14,12 @@ spring:
         url: jdbc:mysql://127.0.0.1:3306/sharding_db_2?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&rewriteBatchedStatements=true&useAffectedRows=true&useSSL=false&requireSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
         username: root
         password: 12345678
+      slave:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/sharding_db?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&rewriteBatchedStatements=true&useAffectedRows=true&useSSL=false&requireSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+        username: root
+        password: 12345678
     rules:
       sharding:
         # 分片算法配置
@@ -58,6 +64,25 @@ spring:
                 sharding-column: id
                 # 分片算法名称
                 sharding-algorithm-name: table-inline
+        # 公共表
+        broadcast-tables: dict_info,enum_info
+      # 读写分离
+      readwrite-splitting:
+        data-sources:
+          master-slaver:
+            type: Static
+            props:
+              # 主库
+              write-data-source-name: db1
+              # 从库
+              read-data-source-names: slave
+            load-balancer-name: round_robin
+        load-balancers:
+          round-robin:
+            type: ROUND_ROBIN
+            props:
+              default: 0
+
     # 属性配置
     props:
       # 展示修改以后的sql语句
