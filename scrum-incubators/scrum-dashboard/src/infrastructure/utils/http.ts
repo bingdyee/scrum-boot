@@ -1,5 +1,5 @@
-import HttpRequest from "infrastructure/utils/request";
-import localStore from "infrastructure/utils/storage";
+import HttpRequest from "@/infrastructure/utils/request";
+import localStore from "@/infrastructure/utils/storage";
 
 
 export default new HttpRequest({
