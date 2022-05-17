@@ -13,4 +13,5 @@ include 'scrum-boot-project:scrum-boot-starters:scrum-boot-starter-log'
 include 'scrum-incubators:scrum-flowable'
 include 'scrum-incubators:scrum-shardingsphere'
 include 'scrum-incubators:scrum-dashboard'
+include 'scrum-samples:scrum-jcolab'
 
