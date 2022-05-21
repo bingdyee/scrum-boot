@@ -1,0 +1,10 @@
+grpc:
+  port: 6575
+
+spring:
+  application:
+    name: grpc-server
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/

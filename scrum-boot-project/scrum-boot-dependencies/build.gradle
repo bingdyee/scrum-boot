@@ -18,6 +18,7 @@ ext {
     set('cglibVersion', '3.3.0')
     set('flowableVersion', '6.7.2')
     set('shardingsphereVersion', '5.1.1')
+    set('grpcVersion', '4.7.0')
 }
 
 dependencies {
@@ -30,6 +31,8 @@ dependencies {
         api "com.baomidou:mybatis-plus-boot-starter:$mybatisPlusVersion"
         api "com.baomidou:mybatis-plus-generator:$mybatisPlusVersion"
         api "com.baomidou:mybatis-plus:$mybatisPlusVersion"
+        api "io.github.lognet:grpc-spring-boot-starter:$grpcVersion"
+        api "io.github.lognet:grpc-client-spring-boot-starter:$grpcVersion"
         api "org.flowable:flowable-spring-boot-starter:$flowableVersion"
         api "org.springdoc:springdoc-openapi-ui:$springdocVersion"
         api "org.springdoc:springdoc-openapi-security:$springdocVersion"

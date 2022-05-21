@@ -1,0 +1,8 @@
+description("gRPC Server")
+
+dependencies {
+    implementation(
+            'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client',
+            'io.github.lognet:grpc-spring-boot-starter'
+    )
+}

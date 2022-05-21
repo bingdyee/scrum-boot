@@ -1,0 +1,17 @@
+grpc:
+  client:
+    host: 127.0.0.1
+    port: 6575
+  enable-reflection: true
+
+
+spring:
+  application:
+    name: grpc-client
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/
+
+server:
+  port: 8081
