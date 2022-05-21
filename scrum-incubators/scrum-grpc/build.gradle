@@ -1,9 +1,37 @@
 description = "gRPC"
 
+ext {
+
+    set('protobufVersion', '3.20.1')
+    set('grpcVersion', '1.46.0')
+}
+
+
 subprojects {
 
-    apply plugin:'io.github.lognet.grpc-spring-boot'
+    apply plugin: 'idea'
     apply plugin: 'java-scrumboot-library'
+    apply plugin: 'com.google.protobuf'
+
+    protobuf {
+        protoc {
+            artifact = "com.google.protobuf:protoc:${protobufVersion}"
+        }
+        generatedFilesBaseDir = "$projectDir/src/generated"
+        clean {
+            delete generatedFilesBaseDir
+        }
+        plugins {
+            grpc {
+                artifact = "io.grpc:protoc-gen-grpc-java:${grpcVersion}"
+            }
+        }
+        generateProtoTasks {
+            all()*.plugins {
+                grpc {}
+            }
+        }
+    }
 
     dependencies {
         implementation(
@@ -12,6 +40,15 @@ subprojects {
         compileOnly 'org.projectlombok:lombok'
         annotationProcessor 'org.projectlombok:lombok:1.18.22'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    }
+
+    idea {
+        module {
+            sourceDirs += file('src/generated/main/java')
+            sourceDirs += file('src/generated/main/grpc')
+            generatedSourceDirs += file('src/generated/main/java')
+            generatedSourceDirs += file('src/generated/main/grpc')
+        }
     }
 
 }

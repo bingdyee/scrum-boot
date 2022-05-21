@@ -4,14 +4,14 @@ import io.github.scrumboot.grpc.calculate.Calculator;
 import io.github.scrumboot.grpc.calculate.UnSecuredCalculatorGrpc;
 import io.grpc.stub.StreamObserver;
 import lombok.extern.slf4j.Slf4j;
-import org.lognet.springboot.grpc.GRpcService;
+import net.devh.boot.grpc.server.service.GrpcService;
 
 /**
  * @author Bing D. Yee
  * @since 2022/05/19
  */
 @Slf4j
-@GRpcService
+@GrpcService
 public class UnSecuredCalculatorService extends UnSecuredCalculatorGrpc.UnSecuredCalculatorImplBase {
 
     @Override

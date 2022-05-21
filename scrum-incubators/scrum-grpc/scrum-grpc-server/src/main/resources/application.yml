@@ -1,5 +1,6 @@
 grpc:
-  port: 6575
+  server:
+    port: 6575
 
 spring:
   application:

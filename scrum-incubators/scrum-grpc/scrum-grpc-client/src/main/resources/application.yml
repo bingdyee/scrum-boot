@@ -1,9 +1,10 @@
 grpc:
   client:
-    host: 127.0.0.1
-    port: 6575
-  enable-reflection: true
-
+#    grpc-server:
+#      address: 'static://127.0.0.1:6575'
+#      negotiation-type: plaintext
+    GLOBAL:
+      negotiation-type: plaintext
 
 spring:
   application:

@@ -4,6 +4,7 @@ import io.github.scrumboot.grpc.calculate.Calculator;
 import io.github.scrumboot.grpc.calculate.SecuredCalculatorGrpc;
 import io.github.scrumboot.grpc.calculate.UnSecuredCalculatorGrpc;
 import io.grpc.ManagedChannel;
+import net.devh.boot.grpc.client.inject.GrpcClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,14 +18,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/v1/calculate")
 public class CalculatorController {
 
-    private final UnSecuredCalculatorGrpc.UnSecuredCalculatorBlockingStub unSecuredCalculatorService;
+    @GrpcClient("grpc-server")
+    private UnSecuredCalculatorGrpc.UnSecuredCalculatorBlockingStub unSecuredCalculatorService;
 
-    private final SecuredCalculatorGrpc.SecuredCalculatorBlockingStub securedCalculatorService;
-
-    public CalculatorController(ManagedChannel managedChannel) {
-        this.unSecuredCalculatorService = UnSecuredCalculatorGrpc.newBlockingStub(managedChannel);
-        this.securedCalculatorService = SecuredCalculatorGrpc.newBlockingStub(managedChannel);
-    }
+    @GrpcClient("grpc-server")
+    private SecuredCalculatorGrpc.SecuredCalculatorBlockingStub securedCalculatorService;
 
     @GetMapping("/add")
     public Double add(double a, double b,
