@@ -18,5 +18,5 @@ include 'scrum-incubators:scrum-grpc'
 include 'scrum-incubators:scrum-grpc:scrum-grpc-server'
 include 'scrum-incubators:scrum-grpc:scrum-grpc-client'
 include 'scrum-incubators:scrum-grpc:scrum-grpc-eureka'
-findProject(':scrum-incubators:scrum-grpc:scrum-grpc-eureka')?.name = 'scrum-grpc-eureka'
+include 'scrum-incubators:scrum-grpc:scrum-grpc-api'
 

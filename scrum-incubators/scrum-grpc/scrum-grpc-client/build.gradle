@@ -4,6 +4,7 @@ dependencies {
     implementation(
             'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client',
             'org.springframework.boot:spring-boot-starter-web',
-            'net.devh:grpc-client-spring-boot-starter'
+            'net.devh:grpc-client-spring-boot-starter',
+            project(':scrum-incubators:scrum-grpc:scrum-grpc-api')
     )
 }

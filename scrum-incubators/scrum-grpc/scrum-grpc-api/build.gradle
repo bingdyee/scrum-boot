@@ -1,0 +1,44 @@
+plugins {
+    id 'idea'
+    id 'com.google.protobuf'
+}
+
+ext {
+    set('protobufVersion', '3.20.1')
+    set('grpcVersion', '1.46.0')
+}
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:${protobufVersion}"
+    }
+    generatedFilesBaseDir = "$projectDir/src/generated"
+    clean {
+        delete generatedFilesBaseDir
+    }
+    plugins {
+        grpc {
+            artifact = "io.grpc:protoc-gen-grpc-java:${grpcVersion}"
+        }
+    }
+    generateProtoTasks {
+        all()*.plugins {
+            grpc {}
+        }
+    }
+}
+
+idea {
+    module {
+        sourceDirs += file('src/generated/main/java')
+        sourceDirs += file('src/generated/main/grpc')
+        generatedSourceDirs += file('src/generated/main/java')
+        generatedSourceDirs += file('src/generated/main/grpc')
+    }
+}
+
+dependencies {
+    compileOnly(
+            'net.devh:grpc-spring-boot-starter'
+    )
+}

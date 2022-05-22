@@ -3,6 +3,7 @@ description("gRPC Server")
 dependencies {
     implementation(
             'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client',
-            'net.devh:grpc-server-spring-boot-starter'
+            'net.devh:grpc-server-spring-boot-starter',
+            project(':scrum-incubators:scrum-grpc:scrum-grpc-api')
     )
 }
