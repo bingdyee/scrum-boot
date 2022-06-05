@@ -19,4 +19,6 @@ include 'scrum-incubators:scrum-grpc:scrum-grpc-server'
 include 'scrum-incubators:scrum-grpc:scrum-grpc-client'
 include 'scrum-incubators:scrum-grpc:scrum-grpc-eureka'
 include 'scrum-incubators:scrum-grpc:scrum-grpc-api'
+include 'scrum-incubators:scrum-authserver'
+findProject(':scrum-incubators:scrum-authserver')?.name = 'scrum-authserver'
 

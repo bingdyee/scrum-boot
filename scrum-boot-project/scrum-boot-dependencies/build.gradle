@@ -20,14 +20,17 @@ ext {
     set('shardingsphereVersion', '5.1.1')
     set('lognetGrpcVersion', '4.7.0')
     set('devhGrpcVersion', '2.13.1.RELEASE')
+    set('zxingVersion', '3.4.1')
+    set('authServerVersion', '0.3.0')
 }
 
 dependencies {
     api platform("org.springframework.boot:spring-boot-dependencies:$springBootVersion")
     api platform("org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion")
     api platform("com.alibaba.cloud:spring-cloud-alibaba-dependencies:$alibabaCloudVersion")
-    api platform("com.google.zxing:zxing-parent:3.4.1")
+    api platform("com.google.zxing:zxing-parent:$zxingVersion")
     constraints {
+        api "org.springframework.security:spring-security-oauth2-authorization-server:$authServerVersion"
         api "org.apache.shardingsphere:shardingsphere-jdbc-core-spring-boot-starter:$shardingsphereVersion"
         api "com.baomidou:mybatis-plus-boot-starter:$mybatisPlusVersion"
         api "com.baomidou:mybatis-plus-generator:$mybatisPlusVersion"
