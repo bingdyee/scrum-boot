@@ -22,12 +22,14 @@ ext {
     set('devhGrpcVersion', '2.13.1.RELEASE')
     set('zxingVersion', '3.4.1')
     set('authServerVersion', '0.3.0')
+    set('openTelemetryVersion', '1.15.0')
 }
 
 dependencies {
     api platform("org.springframework.boot:spring-boot-dependencies:$springBootVersion")
     api platform("org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion")
     api platform("com.alibaba.cloud:spring-cloud-alibaba-dependencies:$alibabaCloudVersion")
+    api platform("io.opentelemetry:opentelemetry-bom:$openTelemetryVersion")
     api platform("com.google.zxing:zxing-parent:$zxingVersion")
     constraints {
         api "org.springframework.security:spring-security-oauth2-authorization-server:$authServerVersion"
