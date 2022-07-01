@@ -23,6 +23,8 @@ ext {
     set('zxingVersion', '3.4.1')
     set('authServerVersion', '0.3.0')
     set('openTelemetryVersion', '1.15.0')
+    set('tinkVersion', '1.6.1')
+    set('commonsCodecVersion', '1.16')
 }
 
 dependencies {
@@ -49,6 +51,8 @@ dependencies {
         api "org.apache.velocity:velocity-engine-core:${velocityVersion}"
         api "com.github.promeg:tinypinyin:$tinyPinyVersion"
         api "cglib:cglib:$cglibVersion"
+        api "com.google.crypto.tink:tink:$tinkVersion"
+        api "commons-codec:commons-codec:$commonsCodecVersion"
         rootProject.subprojects {pro ->
             pro.plugins.withType(JavaPlugin).whenPluginAdded {
                 api pro
