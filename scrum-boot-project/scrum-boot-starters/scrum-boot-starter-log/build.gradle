@@ -12,6 +12,6 @@ dependencies {
             project(':scrum-boot-project:scrum-boot-tools:scrum-boot-langs')
     )
     compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
+    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }

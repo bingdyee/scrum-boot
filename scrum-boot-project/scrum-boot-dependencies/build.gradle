@@ -24,7 +24,7 @@ ext {
     set('authServerVersion', '0.3.0')
     set('openTelemetryVersion', '1.15.0')
     set('tinkVersion', '1.6.1')
-    set('commonsCodecVersion', '1.16')
+    set('commonsCodecVersion', '1.15')
 }
 
 dependencies {
