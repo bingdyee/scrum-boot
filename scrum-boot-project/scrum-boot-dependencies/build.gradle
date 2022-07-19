@@ -10,7 +10,7 @@ javaPlatform {
 
 ext {
     set('mybatisPlusVersion', '3.5.1')
-    set('springdocVersion', '1.6.7')
+    set('springdocVersion', '1.6.9')
     set('guavaVersion', '31.1-jre')
     set('velocityVersion', '2.3')
     set('tinyPinyVersion', '2.0.3')
