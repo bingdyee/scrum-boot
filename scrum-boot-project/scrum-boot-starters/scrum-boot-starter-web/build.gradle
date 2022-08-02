@@ -9,4 +9,5 @@ dependencies {
             'org.springframework.boot:spring-boot-starter-web',
             project(':scrum-boot-project:scrum-boot-tools:scrum-boot-langs')
     )
+    compileOnly 'org.projectlombok:lombok'
 }
