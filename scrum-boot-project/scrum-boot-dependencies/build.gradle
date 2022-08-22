@@ -25,6 +25,7 @@ ext {
     set('openTelemetryVersion', '1.15.0')
     set('tinkVersion', '1.6.1')
     set('commonsCodecVersion', '1.15')
+    set('k8sClientVersion', '16.0.0')
 }
 
 dependencies {
@@ -53,6 +54,7 @@ dependencies {
         api "cglib:cglib:$cglibVersion"
         api "com.google.crypto.tink:tink:$tinkVersion"
         api "commons-codec:commons-codec:$commonsCodecVersion"
+        api "io.kubernetes:client-java:$k8sClientVersion"
         rootProject.subprojects {pro ->
             pro.plugins.withType(JavaPlugin).whenPluginAdded {
                 api pro
