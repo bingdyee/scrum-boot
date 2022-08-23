@@ -1,0 +1,14 @@
+plugins {
+    id 'java-scrumboot-library'
+}
+
+description = "GraphQL"
+
+dependencies {
+    implementation(
+            'com.graphql-java:graphql-spring-boot-starter',
+            'com.h2database:h2',
+            project(':scrum-boot-project:scrum-boot-tools:scrum-boot-langs')
+    )
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}

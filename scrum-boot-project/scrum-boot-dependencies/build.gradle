@@ -26,6 +26,7 @@ ext {
     set('tinkVersion', '1.6.1')
     set('commonsCodecVersion', '1.15')
     set('k8sClientVersion', '16.0.0')
+    set('graphqlVersion', '5.0.2')
 }
 
 dependencies {
@@ -38,6 +39,7 @@ dependencies {
     constraints {
         api "org.springframework.security:spring-security-oauth2-authorization-server:$authServerVersion"
         api "org.apache.shardingsphere:shardingsphere-jdbc-core-spring-boot-starter:$shardingsphereVersion"
+        api "com.graphql-java:graphql-spring-boot-starter:$graphqlVersion"
         api "com.baomidou:mybatis-plus-boot-starter:$mybatisPlusVersion"
         api "com.baomidou:mybatis-plus-generator:$mybatisPlusVersion"
         api "com.baomidou:mybatis-plus:$mybatisPlusVersion"
