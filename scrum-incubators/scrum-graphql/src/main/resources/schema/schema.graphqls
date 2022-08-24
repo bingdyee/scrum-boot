@@ -1,0 +1,22 @@
+type Query {
+    papers: [Paper!]!
+}
+
+type Mutation {
+    createPaper(paperInput: PaperInput): Paper!
+}
+
+input PaperInput {
+    title: String!
+    abbr: String!
+    factor: String!
+    publishDate: String!
+}
+
+type Paper {
+    id: ID!
+    title: String!
+    abbr: String!
+    factor: String!
+    publishDate: String!
+}

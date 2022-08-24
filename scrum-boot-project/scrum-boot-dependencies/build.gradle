@@ -27,6 +27,7 @@ ext {
     set('commonsCodecVersion', '1.15')
     set('k8sClientVersion', '16.0.0')
     set('graphqlVersion', '5.0.2')
+    set('dgsVersion', '5.1.1')
 }
 
 dependencies {
@@ -36,6 +37,7 @@ dependencies {
     api platform("io.opentelemetry:opentelemetry-bom:$openTelemetryVersion")
     api platform("com.google.zxing:zxing-parent:$zxingVersion")
     api platform("io.kubernetes:client-java-parent:$k8sClientVersion")
+    api platform("com.netflix.graphql.dgs:graphql-dgs-platform-dependencies:$dgsVersion")
     constraints {
         api "org.springframework.security:spring-security-oauth2-authorization-server:$authServerVersion"
         api "org.apache.shardingsphere:shardingsphere-jdbc-core-spring-boot-starter:$shardingsphereVersion"

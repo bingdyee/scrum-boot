@@ -6,9 +6,13 @@ description = "GraphQL"
 
 dependencies {
     implementation(
-            'com.graphql-java:graphql-spring-boot-starter',
+//            'com.graphql-java:graphql-spring-boot-starter',
+            'org.springframework.boot:spring-boot-starter-web',
+            'com.netflix.graphql.dgs:graphql-dgs-spring-boot-starter',
             'com.h2database:h2',
             project(':scrum-boot-project:scrum-boot-tools:scrum-boot-langs')
     )
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
